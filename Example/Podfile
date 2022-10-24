@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'WordsCloudView_Example' do
+  pod 'WordsCloudView', :path => '../'
+
+  target 'WordsCloudView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
