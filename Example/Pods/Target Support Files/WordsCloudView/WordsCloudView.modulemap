@@ -1,0 +1,6 @@
+framework module WordsCloudView {
+  umbrella header "WordsCloudView-umbrella.h"
+
+  export *
+  module * { export * }
+}

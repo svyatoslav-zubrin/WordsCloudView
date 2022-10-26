@@ -1,0 +1,16 @@
+PODS:
+  - WordsCloudView (0.1.0)
+
+DEPENDENCIES:
+  - WordsCloudView (from `../`)
+
+EXTERNAL SOURCES:
+  WordsCloudView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WordsCloudView: f4a073a264df207491725890866512dfae04de9e
+
+PODFILE CHECKSUM: 9deda63525b215c317aba89d5163f198a8834824
+
+COCOAPODS: 1.11.2

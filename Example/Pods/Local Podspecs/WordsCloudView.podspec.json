@@ -1,0 +1,22 @@
+{
+  "name": "WordsCloudView",
+  "version": "0.1.0",
+  "summary": "A short description of WordsCloudView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Slava Zubrin/WordsCloudView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Slava Zubrin": "szubrin79@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Slava Zubrin/WordsCloudView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "WordsCloudView/Classes/**/*"
+}
