@@ -14,9 +14,9 @@ Pod::Spec.new do |s|
   Cloud of words view. Implementation is based on the code of Christian Petah (see  https://github.com/PetahChristian/LionAndLamb ).
                     DESC
   s.homepage         = 'https://github.com/Slava Zubrin/WordsCloudView'
-  s.screenshots     = 'https://github.com/Slava Zubrin/WordsCloudView/Screenshots/words_cloud.png'
+  s.screenshots      = 'https://github.com/svyatoslav-zubrin/WordsCloudView/blob/fada05553b19fe10cf0b82a86a6ab0385a695385/Screenshots/words_cloud.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Slava Zubrin' => 'szubrin79@gmail.com' }
+  s.author           = { 'Slava Zubrin' => 'szubrin79 `at` gmail.com' }
   s.source           = { :git => 'https://github.com/Slava Zubrin/WordsCloudView.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
