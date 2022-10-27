@@ -14,11 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet private weak var cloudView: WordsCloudView!
 
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadCloud()

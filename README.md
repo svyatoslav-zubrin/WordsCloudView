@@ -1,9 +1,6 @@
 # WordsCloudView
 
-[![CI Status](https://img.shields.io/travis/Slava Zubrin/WordsCloudView.svg?style=flat)](https://travis-ci.org/Slava Zubrin/WordsCloudView)
-[![Version](https://img.shields.io/cocoapods/v/WordsCloudView.svg?style=flat)](https://cocoapods.org/pods/WordsCloudView)
-[![License](https://img.shields.io/cocoapods/l/WordsCloudView.svg?style=flat)](https://cocoapods.org/pods/WordsCloudView)
-[![Platform](https://img.shields.io/cocoapods/p/WordsCloudView.svg?style=flat)](https://cocoapods.org/pods/WordsCloudView)
+`Cloud of words` view. Based on the [code](https://github.com/PetahChristian/LionAndLamb) of Christian Petah.
 
 ## Example
 
