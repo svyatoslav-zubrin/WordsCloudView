@@ -25,6 +25,10 @@ public class WordsCloudView: UIView {
     private var fontName: String = Const.fontName
     private var wordLabels: [UILabel] = []
 
+    private var cacheKey: CloudLayoutCache.Key?
+    private var info: [CloudLayoutCache.WordInfo]?
+    private let cache = CloudLayoutCache()
+
     // MARK: - Lifecycle
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,7 +64,7 @@ public class WordsCloudView: UIView {
 
     // MARK: - Setup
     private func setup() {
-        // check cache
+        subscribe()
     }
 
     // MARK: - Notifications
@@ -85,21 +89,36 @@ public class WordsCloudView: UIView {
         // Cancel any in-progress layout
         stopLayoutInProgress()
         removeAllWords()
+        resetInfoToCache()
 
         guard let words = words, !words.isEmpty else { return }
 
-        // Start a new cloud layout operation
-        let minValue = words.compactMap({ $0.weight }).min() ?? 1
-        let ratio = 1 / minValue
-        let cloudWords = words.map({ CloudWord(word: $0.text, count: Int(ceil($0.weight * ratio)), color: $0.color)})
+        // Prepare cache key
         let csCategory = UIApplication.shared.preferredContentSizeCategory
-        let layoutOperation = CloudLayoutOperation(words: cloudWords,
-                                                   fontName: fontName,
-                                                   containerSize: bounds.size,
-                                                   scale: UIScreen.main.scale,
-                                                   contentSizeCategory: csCategory,
-                                                   delegate: self)
-        layoutQueue.addOperation(layoutOperation)
+        let cacheKey = CloudLayoutCache.Key(contentSize: bounds.size, contentSizeCategory: csCategory,
+                                            fontName: fontName, words: words)
+        if let wordsInfo = cache.cachedInfo(forKey: cacheKey) {
+            // Fill cloud with cached layout
+            wordsInfo.forEach {
+                placed(word: $0.text, pointSize: $0.pointSize, color: $0.color,
+                       center: $0.center, isVertical: $0.isVertical)
+            }
+        } else {
+            self.cacheKey = cacheKey
+            info = []
+
+            // Start a new cloud layout operation
+            let minValue = words.compactMap({ $0.weight }).min() ?? 1
+            let ratio = 1 / minValue
+            let cloudWords = words.map({ CloudWord(word: $0.text, count: Int(ceil($0.weight * ratio)), color: $0.color)})
+            let layoutOperation = CloudLayoutOperation(words: cloudWords,
+                                                       fontName: fontName,
+                                                       containerSize: bounds.size,
+                                                       scale: UIScreen.main.scale,
+                                                       contentSizeCategory: csCategory,
+                                                       delegate: self)
+            layoutQueue.addOperation(layoutOperation)
+        }
     }
 
     private func stopLayoutInProgress() {
@@ -113,10 +132,15 @@ public class WordsCloudView: UIView {
         }
         wordLabels.removeAll()
     }
+
+    private func resetInfoToCache() {
+        cacheKey = nil
+        info = nil
+    }
 }
 
 extension WordsCloudView: CloudLayoutOperationDelegate {
-    func insert(word: String, pointSize: CGFloat, color: UIColor, center: CGPoint, isVertical: Bool) {
+    func placed(word: String, pointSize: CGFloat, color: UIColor, center: CGPoint, isVertical: Bool) {
         let wordLabel = UILabel(frame: .zero)
 
         wordLabel.text = word
@@ -146,7 +170,24 @@ extension WordsCloudView: CloudLayoutOperationDelegate {
         wordLabel.translatesAutoresizingMaskIntoConstraints = true
         addSubview(wordLabel)
         wordLabels.append(wordLabel)
+
+        // store for later caching
+        let wordInfo = CloudLayoutCache.WordInfo(text: word, pointSize: pointSize, color: color, center: center,
+                                                 isVertical: isVertical)
+        info?.append(wordInfo)
+    }
+
+    func failedToPlace(word: String) {
+        resetInfoToCache()
+    }
+
+    func finished(success: Bool) {
+        guard success else {
+            resetInfoToCache()
+            return
+        }
+
+        guard let key = cacheKey, let info = info else { return }
+        cache.cache(info: info, forKey: key)
     }
 }
-
-

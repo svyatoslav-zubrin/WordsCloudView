@@ -9,7 +9,9 @@ import Foundation
 import CoreText
 
 protocol CloudLayoutOperationDelegate: class {
-    func insert(word: String, pointSize: CGFloat, color: UIColor, center: CGPoint, isVertical: Bool)
+    func placed(word: String, pointSize: CGFloat, color: UIColor, center: CGPoint, isVertical: Bool)
+    func failedToPlace(word: String)
+    func finished(success: Bool)
 }
 
 class CloudLayoutOperation: Operation {
@@ -60,6 +62,10 @@ class CloudLayoutOperation: Operation {
 
     // MARK: - Operation
     override func main() {
+        var wasInterrupted = true
+
+        defer { delegate?.finished(success: !wasInterrupted) }
+
         if isCancelled { return }
 
         normalizeWordWeights()
@@ -75,6 +81,10 @@ class CloudLayoutOperation: Operation {
         if isCancelled { return }
 
         layoutCloudWords()
+
+        if isCancelled { return }
+
+        wasInterrupted = false
     }
 
     // MARK: - Private
@@ -186,12 +196,9 @@ class CloudLayoutOperation: Operation {
             }
 
             // Reduce font size if word doesn't fit
-
-//            #if DEBUG
             if !placed {
-                print("Couldn't find a spot for \(word.text)")
+                delegate?.failedToPlace(word: word.text)
             }
-//            #endif
         }
     }
 
@@ -254,7 +261,7 @@ class CloudLayoutOperation: Operation {
 
         // Word doesn't intersect any (glyphs of) previously placed words. Place it
         DispatchQueue.main.sync { [weak self] in
-            self?.delegate.insert(word: word.text,
+            self?.delegate.placed(word: word.text,
                                   pointSize: word.pointSize,
                                   color: word.color,
                                   center: word.boundsCenter,

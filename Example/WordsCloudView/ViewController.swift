@@ -21,20 +21,21 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        let demoWords = fetchDemoData()
-        cloudView.configure(words: demoWords, fontName: "Avenir-Heavy", bgColor: UIColor.lightText)
+        reloadCloud()
     }
 
     // MARK: - UIActions
     @IBAction func reload() {
         cloudView.clear()
+        reloadCloud()
+    }
 
+    // MARK: - Private
+    private func reloadCloud() {
         let demoWords = fetchDemoData()
         cloudView.configure(words: demoWords, fontName: "Avenir-Heavy", bgColor: UIColor.lightText)
     }
 
-    // MARK: - Private
     private func fetchDemoData() -> [Word] {
         guard let path = Bundle.main.path(forResource: "sentiment_analysis_data", ofType: "json"),
               let data = (try? String(contentsOfFile: path, encoding: .utf8))?.data(using: .utf8),

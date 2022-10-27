@@ -8,7 +8,8 @@
 import Foundation
 
 /// A word, consisting of text, word weight and that should be used for rendering
-public struct Word {
+public struct Word: Hashable {
+    // MARK: - Props
     /// The text to render
     let text: String
 
@@ -18,6 +19,7 @@ public struct Word {
     /// Color of the rendered word
     let color: UIColor
 
+    // MARK: - Lifecycle
     /// Initialize 
     /// - Parameters:
     ///   - text: the text that will be rendered
@@ -27,5 +29,18 @@ public struct Word {
         self.text = text
         self.weight = weight
         self.color = color
+    }
+
+    // MARK: - Hashable
+    public static func == (lhs: Word, rhs: Word) -> Bool {
+        return lhs.text == rhs.text
+            && lhs.weight == rhs.weight
+            && lhs.color == rhs.color
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(text)
+        hasher.combine(weight)
+        hasher.combine(color)
     }
 }

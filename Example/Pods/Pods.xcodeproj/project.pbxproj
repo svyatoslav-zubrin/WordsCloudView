@@ -21,6 +21,7 @@
 		F9A5E53029064C6F0057869D /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5E52F29064C6F0057869D /* QuadTree.swift */; };
 		F9A5E534290686CE0057869D /* CloudWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5E533290686CE0057869D /* CloudWord.swift */; };
 		F9A5E53629069A570057869D /* UIFont+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5E53529069A570057869D /* UIFont+Utils.swift */; };
+		F9B8A0B8290984E4003D9D4F /* CloudLayoutCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8A0B7290984E4003D9D4F /* CloudLayoutCache.swift */; };
 		F9C5A85B2907D16F005B766F /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5A85A2907D16F005B766F /* Word.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		F9A5E52F29064C6F0057869D /* QuadTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuadTree.swift; path = WordsCloudView/Classes/QuadTree.swift; sourceTree = "<group>"; };
 		F9A5E533290686CE0057869D /* CloudWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudWord.swift; path = WordsCloudView/Classes/CloudWord.swift; sourceTree = "<group>"; };
 		F9A5E53529069A570057869D /* UIFont+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIFont+Utils.swift"; path = "WordsCloudView/Categories/UIFont+Utils.swift"; sourceTree = "<group>"; };
+		F9B8A0B7290984E4003D9D4F /* CloudLayoutCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudLayoutCache.swift; path = WordsCloudView/Classes/CloudLayoutCache.swift; sourceTree = "<group>"; };
 		F9C5A85A2907D16F005B766F /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Word.swift; path = WordsCloudView/Classes/Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				F9A5E52B29064BFA0057869D /* WordsCloudView.swift */,
 				F9A5E533290686CE0057869D /* CloudWord.swift */,
 				F9A5E52D29064C520057869D /* CloudLayoutOperation.swift */,
+				F9B8A0B7290984E4003D9D4F /* CloudLayoutCache.swift */,
 				F9A5E52F29064C6F0057869D /* QuadTree.swift */,
 				F9A5E53529069A570057869D /* UIFont+Utils.swift */,
 				010229F6FB00E3DB3AECF59287BFF917 /* Pod */,
@@ -384,6 +387,7 @@
 			files = (
 				F9A5E53029064C6F0057869D /* QuadTree.swift in Sources */,
 				F9C5A85B2907D16F005B766F /* Word.swift in Sources */,
+				F9B8A0B8290984E4003D9D4F /* CloudLayoutCache.swift in Sources */,
 				F9A5E52C29064BFA0057869D /* WordsCloudView.swift in Sources */,
 				F9A5E52E29064C520057869D /* CloudLayoutOperation.swift in Sources */,
 				F9A5E534290686CE0057869D /* CloudWord.swift in Sources */,
