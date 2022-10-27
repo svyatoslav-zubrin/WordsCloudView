@@ -2,11 +2,11 @@
 
 `Cloud of words` view. Based on the [code](https://github.com/PetahChristian/LionAndLamb) of Christian Petah.
 
+![Screenshot](https://github.com/svyatoslav-zubrin/WordsCloudView/blob/fada05553b19fe10cf0b82a86a6ab0385a695385/Screenshots/words_cloud.png)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-![Screenshot](https://github.com/svyatoslav-zubrin/WordsCloudView/blob/fada05553b19fe10cf0b82a86a6ab0385a695385/Screenshots/words_cloud.png)
 
 ## Requirements
 
