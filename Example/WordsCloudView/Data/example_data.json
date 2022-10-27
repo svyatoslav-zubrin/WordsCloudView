@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "word": "Lorem ipsum",
+      "weight": 1.0
+    },
+    {
+      "word": "dolor",
+      "weight": 0.67
+    },
+    {
+      "word": "sit amet",
+      "weight": 0.56
+    },
+    {
+      "word": "consectetur",
+      "weight": 0.22
+    },
+    {
+      "word": "adipiscing elit",
+      "weight": 0.22
+    },
+    {
+      "word": "Etiam",
+      "weight": 0.22
+    },
+    {
+      "word": "convallis",
+      "weight": 0.22
+    },
+    {
+      "word": "neque",
+      "weight": 0.22
+    },
+    {
+      "word": "10",
+      "weight": 0.22
+    },
+    {
+      "word": "vel eros finibus",
+      "weight": 0.22
+    },
+    {
+      "word": "a lobortis",
+      "weight": 0.22
+    },
+    {
+      "word": "elit suscipit",
+      "weight": 0.22
+    },
+    {
+      "word": "Vivamus",
+      "weight": 0.22
+    },
+    {
+      "word": "semper",
+      "weight": 0.11
+    },
+    {
+      "word": "viverra posuere",
+      "weight": 0.11
+    },
+    {
+      "word": "Ut eu enim",
+      "weight": 0.11
+    },
+    {
+      "word": "in nunc",
+      "weight": 0.11
+    },
+    {
+      "word": "posuere",
+      "weight": 0.11
+    },
+    {
+      "word": "porta in",
+      "weight": 0.11
+    },
+    {
+      "word": "eu porta mauris",
+      "weight": 0.11
+    }
+  ]
+}

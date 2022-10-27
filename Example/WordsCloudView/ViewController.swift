@@ -33,30 +33,22 @@ class ViewController: UIViewController {
     // MARK: - Private
     private func reloadCloud() {
         let demoWords = fetchDemoData()
-        cloudView.configure(words: demoWords, fontName: "Avenir-Heavy", bgColor: UIColor.lightText)
+        cloudView.configure(words: demoWords, fontName: "Avenir-Heavy", bgColor: UIColor.lightText, disableCaching: true)
     }
 
     private func fetchDemoData() -> [Word] {
-        guard let path = Bundle.main.path(forResource: "sentiment_analysis_data", ofType: "json"),
+        guard let path = Bundle.main.path(forResource: "example_data", ofType: "json"),
               let data = (try? String(contentsOfFile: path, encoding: .utf8))?.data(using: .utf8),
               let jsonObject = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
               let jsonDict = jsonObject as? [String: Any],
-              jsonDict.keys.contains("cloudData"),
-              let cloudWordsJSON = jsonDict["cloudData"] as? [[String: Any]]
+              jsonDict.keys.contains("data"),
+              let cloudWordsJSON = jsonDict["data"] as? [[String: Any]]
         else { fatalError() }
 
         let words = cloudWordsJSON.compactMap { json -> Word? in
-            guard let text = json["keyphrase"] as? String,
-                  let value = json["relativeSize"] as? Double,
-                  let sentiment = json["strongestSentimentAssociated"] as? String
+            guard let text = json["word"] as? String,
+                  let value = json["weight"] as? Double
             else { return nil }
-            let color: UIColor
-            switch sentiment {
-            case "POSITIVE": color = .green
-            case "NEGATIVE": color = .red
-            case "NEUTRAL" : color = .darkGray
-            default: color = .black
-            }
             return Word(text: text, weight: Float(value))
         }
         return words

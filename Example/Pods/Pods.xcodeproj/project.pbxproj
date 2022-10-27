@@ -43,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0559693DBA9A847B9341DEA15C00AE6F /* WordsCloudView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = WordsCloudView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0559693DBA9A847B9341DEA15C00AE6F /* WordsCloudView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = WordsCloudView.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		05DDC8E02368CAD7BC0A72484726DAC5 /* Pods-WordsCloudView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WordsCloudView_Example-umbrella.h"; sourceTree = "<group>"; };
 		0E2389F63B86DC2D0A0FF2B6359C8331 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1201E39C9581E1E50224BCF121EA382C /* WordsCloudView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WordsCloudView-umbrella.h"; sourceTree = "<group>"; };

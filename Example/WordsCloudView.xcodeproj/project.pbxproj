@@ -16,7 +16,7 @@
 		94503507443383A66D663537 /* Pods_WordsCloudView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25869F23C08DDC9521D805DE /* Pods_WordsCloudView_Tests.framework */; };
 		ADF8CE39AE6846D092E00C22 /* Pods_WordsCloudView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED9BEE94878236A571A4D92 /* Pods_WordsCloudView_Example.framework */; };
 		F93ECD48290A91730097B1AB /* CloudLayoutCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93ECD47290A91730097B1AB /* CloudLayoutCacheTests.swift */; };
-		F9A37AA7290889DA00103662 /* sentiment_analysis_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F9A37AA6290889DA00103662 /* sentiment_analysis_data.json */; };
+		F9A37AA7290889DA00103662 /* example_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F9A37AA6290889DA00103662 /* example_data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		B770DAB3C00E02F15C7D64D9 /* Pods-WordsCloudView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordsCloudView_Example.debug.xcconfig"; path = "Target Support Files/Pods-WordsCloudView_Example/Pods-WordsCloudView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F62F387E056A0E60B2E36E73 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F93ECD47290A91730097B1AB /* CloudLayoutCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLayoutCacheTests.swift; sourceTree = "<group>"; };
-		F9A37AA6290889DA00103662 /* sentiment_analysis_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sentiment_analysis_data.json; sourceTree = "<group>"; };
+		F9A37AA6290889DA00103662 /* example_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example_data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 		F9A37AA5290889DA00103662 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				F9A37AA6290889DA00103662 /* sentiment_analysis_data.json */,
+				F9A37AA6290889DA00103662 /* example_data.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -263,7 +263,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				F9A37AA7290889DA00103662 /* sentiment_analysis_data.json in Resources */,
+				F9A37AA7290889DA00103662 /* example_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
