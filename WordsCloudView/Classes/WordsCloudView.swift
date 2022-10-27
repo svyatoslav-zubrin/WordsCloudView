@@ -28,6 +28,7 @@ public class WordsCloudView: UIView {
     private var cacheKey: CloudLayoutCache.Key?
     private var info: [CloudLayoutCache.WordInfo]?
     private let cache = CloudLayoutCache()
+    private var disableCache = false
 
     // MARK: - Lifecycle
     public override init(frame: CGRect) {
@@ -46,10 +47,11 @@ public class WordsCloudView: UIView {
     }
 
     // MARK: - Public
-    public func configure(words: [Word], fontName: String?, bgColor: UIColor = .white) {
+    public func configure(words: [Word], fontName: String?, bgColor: UIColor = .white, disableCaching: Bool = false) {
         self.words = words
         self.fontName = fontName ?? Const.fontName
         self.backgroundColor = bgColor
+        self.disableCache = disableCaching
         layoutCloudWords()
     }
 
@@ -97,15 +99,17 @@ public class WordsCloudView: UIView {
         let csCategory = UIApplication.shared.preferredContentSizeCategory
         let cacheKey = CloudLayoutCache.Key(contentSize: bounds.size, contentSizeCategory: csCategory,
                                             fontName: fontName, words: words)
-        if let wordsInfo = cache.cachedInfo(forKey: cacheKey) {
+        if !disableCache, let wordsInfo = cache.cachedInfo(forKey: cacheKey) {
             // Fill cloud with cached layout
             wordsInfo.forEach {
                 placed(word: $0.text, pointSize: $0.pointSize, color: $0.color,
                        center: $0.center, isVertical: $0.isVertical)
             }
         } else {
-            self.cacheKey = cacheKey
-            info = []
+            if !disableCache {
+                self.cacheKey = cacheKey
+                info = []
+            }
 
             // Start a new cloud layout operation
             let minValue = words.compactMap({ $0.weight }).min() ?? 1
@@ -162,16 +166,18 @@ extension WordsCloudView: CloudLayoutOperationDelegate {
             wordLabel.transform = CGAffineTransform(rotationAngle: .pi / 2)
         }
 
-    #if DEBUG
-        wordLabel.layer.borderColor = UIColor.red.cgColor
-        wordLabel.layer.borderWidth = 1
-    #endif
+//    #if DEBUG
+//        wordLabel.layer.borderColor = UIColor.red.cgColor
+//        wordLabel.layer.borderWidth = 1
+//    #endif
 
         wordLabel.translatesAutoresizingMaskIntoConstraints = true
         addSubview(wordLabel)
         wordLabels.append(wordLabel)
 
         // store for later caching
+        guard !disableCache else { return }
+
         let wordInfo = CloudLayoutCache.WordInfo(text: word, pointSize: pointSize, color: color, center: center,
                                                  isVertical: isVertical)
         info?.append(wordInfo)
@@ -187,7 +193,7 @@ extension WordsCloudView: CloudLayoutOperationDelegate {
             return
         }
 
-        guard let key = cacheKey, let info = info else { return }
+        guard !disableCache, let key = cacheKey, let info = info else { return }
         cache.cache(info: info, forKey: key)
     }
 }
