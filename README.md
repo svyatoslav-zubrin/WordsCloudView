@@ -6,7 +6,7 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-[Screenshot](https://github.com/svyatoslav-zubrin/WordsCloudView/blob/fada05553b19fe10cf0b82a86a6ab0385a695385/Screenshots/words_cloud.png)
+![Screenshot](https://github.com/svyatoslav-zubrin/WordsCloudView/blob/fada05553b19fe10cf0b82a86a6ab0385a695385/Screenshots/words_cloud.png)
 
 ## Requirements
 
